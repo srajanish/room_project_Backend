@@ -2,7 +2,10 @@
 
 exports.connect = () => {
     var mongoose = require('mongoose');
-    mongoose.connect('mongodb+srv://srajanish:maharana1995@cluster0-595zc.mongodb.net/room?retryWrites=true&w=majority',
+
+    const mongoUrl=process.env.MONGOURL;
+
+    mongoose.connect(mongoUrl,
         { useNewUrlParser: true, useUnifiedTopology: true });
 
     var db = mongoose.connection;
