@@ -1,5 +1,7 @@
 var express = require('express');
 var app = express()
+const PORT = process.env.PORT || 5000
+
 
 var bodyParser = require('body-parser');
 var cors = require('cors')
@@ -29,4 +31,4 @@ app.use(cors(corsOptions));
 app.get('/',(req,res)=>res.send("Hello"))
 
 
-app.listen(8080, () => console.log("running on post 8080"));
+app .listen(PORT, () => console.log(`Listening on ${ PORT }`))
