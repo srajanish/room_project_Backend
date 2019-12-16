@@ -5,9 +5,9 @@ const createCookingTask=(req,res)=>{
     let cookingTask=new task.CookingTask({...req.body})
     cookingTask.save().then(result=>{
         console.log(res);
-        res.json({msg:"Task is created"})
+        res.status(200).json({msg:"Task is created"})
     },err=>{
-        console.log(err);
+        res.status(403).json(err);
     })
 
 }
@@ -18,9 +18,9 @@ const createWaterTask=(req,res)=>{
   let waterTask=new task.WaterTask({...req.body})
   waterTask.save().then(result=>{
        console.log(res);
-       res.json({msg:"Task is created"})
+       res.status(200).json({msg:"Task is created"})
    },err=>{
-       console.log(err);
+    res.status(403).json(err);
    })
 
 }
@@ -31,9 +31,9 @@ const createGarbageTask=(req,res)=>{
  let garbageTask=new task.GrabageTask({...req.body})
  garbageTask.save().then(result=>{
       console.log(res);
-      res.json({msg:"Task is created"})
+      res.status(200).json({msg:"Task is created"})
   },err=>{
-      console.log(err);
+    res.status(403).json(err);
   })
 
 }
@@ -68,27 +68,27 @@ const getCookingTask=(req,res)=>{
      
         var myDate = new Date(moment("2018-07-04").format("YYYY-MM-DD"));
         console.log(myDate)
-        res.json(result)
+        res.status(200).json(result)
     },err=>{
-        res.json(err);
+        res.status(403).json(err);
     })
 
 }
 
 const getWaterTask=(req,res)=>{
     task.WaterTask.find().then(result=>{
-        res.json(result)
+        res.status(200).json(result)
     },err=>{
-        res.json(err);
+        res.status(403).json(err);
     })
 
 }
 
 const getGarbageTask=(req,res)=>{
     task.GrabageTask.find().then(result=>{
-        res.json(result)
+        res.status(200).json(result)
     },err=>{
-        res.json(err);
+        res.status(403).json(err);
     })
 
 }

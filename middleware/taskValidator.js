@@ -10,6 +10,7 @@ let task=require('../model/taskModel');
 
         task.CookingTask.find({date:req.body.date}).then(res=>{
             console.log(res);
+           
         },err=>{
             console.log(err);
         })
